@@ -1,246 +1,171 @@
-
-header {
-
-    background-color: rgb(0, 0, 0);
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: -90px;
-    z-index: 2;
-    
-}
-
-.header__h1{
-    font-size: 2rem;
-    height: 90px;
-    padding-top: 30px;
-
-    font-stretch: ultra-expanded;
-    font-family: var(--font-gothic);
-
-    margin-left: 25px;
-}
-
 /* h1 <a> tag */
-.header__link {
-    text-decoration: none;
-    color: white;
+/*Nav bar Flex container contains 3 Flex items: ul-left, ul-right and hamburguer button*/
+/*nav bar buttons*/
+/* Styles for the hamburguer button on mobile menu */
+/*Active search bar on click*/
+/* Creating the nav bar and moving it away until hamburguer button is press */
+/* Bars to cross transition. 2nd bar will not show while 1st and 2rd will rotate*/
+header {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: -90px;
+  z-index: 2;
 }
 
-/*Nav bar Flex container contains 3 Flex items: ul-left, ul-right and hamburguer button*/
-.header__nav-bar{
-    background-color: var(--background-color);
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header__h1 {
+  font-size: 2rem;
+  height: 90px;
+  padding-top: 30px;
+  font-stretch: ultra-expanded;
+  font-family: var(--font-gothic);
+  margin-left: 25px;
+}
 
-    position: sticky;
-    z-index: 1;
-    top: 0;
+.header__link {
+  text-decoration: none;
+  color: white;
+}
 
-
+.header__nav-bar {
+  background-color: var(--background-color);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  z-index: 1;
+  top: 0;
 }
 
 .header__nav-bar-ul-left {
-    display: flex;
-    gap: 3.5rem;
-    margin-left: 20px;
-
+  display: flex;
+  gap: 3.5rem;
+  margin-left: 20px;
 }
 
-
-.header__nav-bar-ul-right{
-    display: flex;
-    gap: 1rem;
-    margin-right: 2rem;
-
-    position: relative; /*Relative for search-bar-active*/
-
+.header__nav-bar-ul-right {
+  display: flex;
+  gap: 1rem;
+  margin-right: 2rem;
+  position: relative;
 }
 
-/*nav bar buttons*/
 .header__nav-bar-li {
-
-    font-size: 1.2rem;
-
-    border-bottom: 5px solid transparent;
-    cursor: pointer;
-   
-    list-style-type: none;
-    text-align: center;
-    
-    border-radius: 0.25rem;
-    padding: 5px;
-
-    transition: all 0.3s;
-
-
+  font-size: 1.2rem;
+  border-bottom: 5px solid transparent;
+  cursor: pointer;
+  list-style-type: none;
+  text-align: center;
+  border-radius: 0.25rem;
+  padding: 5px;
+  transition: all 0.3s;
+}
+.header__nav-bar-li:hover {
+  border-bottom: 3px solid rgb(121, 174, 235);
+  transform: scale(1.05);
+  background: linear-gradient(to right, rgb(0, 116, 248), rgb(193, 221, 242), rgb(171, 202, 238));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-
-
-.header__nav-bar-li:hover, .header__hamburguer-button:hover{
-
-    border-bottom: 3px solid rgb(121, 174, 235);
-
-    transform: scale(1.05);
-    /* gradient for the text */
-    background: linear-gradient(to right, rgb(0, 116, 248), rgb(193, 221, 242)  , rgb(171, 202, 238));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color:transparent;
-
-
+.header__hamburguer-button {
+  color: white;
+  position: absolute;
+  left: 25px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0.2rem;
+  height: 1.5rem;
+  width: 2.3rem;
+}
+.header__hamburguer-button:hover {
+  border-bottom: 3px solid rgb(121, 174, 235);
+  transform: scale(1.05);
+  background: linear-gradient(to right, rgb(0, 116, 248), rgb(193, 221, 242), rgb(171, 202, 238));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-
-/* Styles for the hamburguer button on mobile menu */
-
-.header__hamburguer-button{
-        color: white;
-        position: absolute;
-        left: 25px;
-        top: 20px;
-
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-
-        
-        gap: 0.2rem;
-
-        height: 1.5rem;
-        width: 2.3rem;
-
-        
-    }
-    
-    .header__hamburguer-bar{
-    display: none;
-
-    background-color: white;
-    height: 0.2rem;
-    width: 90%;
-    border-radius: 0.5rem;
+.header__hamburguer-bar {
+  display: none;
+  background-color: white;
+  height: 0.2rem;
+  width: 90%;
+  border-radius: 0.5rem;
 }
 
-/*Active search bar on click*/
-.header__search-bar-toggle{
-    width: 10rem;
-    height: 2rem;
-    padding-left: 0.5rem;
-    
-    position: absolute;/*relative to header__nav-bar-ul-right*/
-    right: 12rem;
-    bottom: 1rem;
-
-    transition: all 1s;
-    transform: translateY(-100rem);
-    font-size: 1rem;
-
-    background-color: rgb(250, 245, 245);
-    border-radius: 0.25rem;
-
+.header__search-bar-toggle {
+  width: 10rem;
+  height: 2rem;
+  padding-left: 0.5rem;
+  position: absolute;
+  right: 12rem;
+  bottom: 1rem;
+  transition: all 1s;
+  transform: translateY(-100rem);
+  font-size: 1rem;
+  background-color: rgb(250, 245, 245);
+  border-radius: 0.25rem;
 }
 
-.header__search-bar-toggle.active{
-    transform: translateY(0rem);
+.header__search-bar-toggle.active {
+  transform: translateY(0rem);
 }
 
-
-
-@media (max-width: 900px){
-
-    .header__h1{
-        margin-left: 1rem;
-    }
-
-   .header__nav-bar{
+@media (max-width: 900px) {
+  .header__h1 {
+    margin-left: 1rem;
+  }
+  .header__nav-bar {
     flex-direction: column;
     padding: 1rem 0rem 0rem 0rem;
-
-   }
-
-    .header__nav-bar-ul-right{
-        gap: 0.5rem;
-        margin-left: 2.5rem;
-
-
-    }
-    
-    
-    /* Creating the nav bar and moving it away until hamburguer button is press */
-    .header__nav-bar-ul-left{
-
-        display: flex;
-        flex-direction: column;
-        border-radius: 0rem 0rem 1rem 1rem;
-        order: 1; /*So that it shows up after the right nav bar (icons) */
-
-        transform: translateX(-100rem);
-        transition: 0.3s ease-out ;
-
-
-        
-
-
-        padding: 1rem 1rem 1rem 2.3rem;
-        width: 100%;
-        gap: 1.5rem;
-        margin: 0rem ;
-
-        background-color: var(--background-color) ;
-        
-    }
-
-    .header__nav-bar-ul-left.active{
-
-        /* display: flex; */
-        transform: translateX(0rem);
-        transition: all 0.3 ease-in ;
-
-
-
-    }
-    
-    .header__hamburguer-bar{
-        
-        display: block;
-        transition: 0.3s;
-
-    
+  }
+  .header__nav-bar-ul-right {
+    gap: 0.5rem;
+    margin-left: 2.5rem;
+  }
+  .header__nav-bar-ul-left {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0rem 0rem 1rem 1rem;
+    order: 1;
+    transform: translateX(-100rem);
+    transition: 0.3s ease-out;
+    padding: 1rem 1rem 1rem 2.3rem;
+    width: 100%;
+    gap: 1.5rem;
+    margin: 0rem;
+    background-color: var(--background-color);
+  }
+  .header__nav-bar-ul-left.active {
+    transform: translateX(0rem);
+    transition: all 0.3 ease-in;
+  }
+  .header__hamburguer-bar {
+    display: block;
+    transition: 0.3s;
+  }
+  .header__hamburguer-button.active .header__hamburguer-bar:nth-child(2) {
+    opacity: 0;
+    transition: 0.2s;
+  }
+  .header__hamburguer-button.active .header__hamburguer-bar:nth-child(1) {
+    transform: translateY(0.53rem) rotate(45deg);
+    transition: 0.2s;
+  }
+  .header__hamburguer-button.active .header__hamburguer-bar:nth-child(3) {
+    transform: translateY(-0.53rem) rotate(-45deg);
+    transition: 0.2s;
+  }
+  .header__search-bar-toggle {
+    z-index: 10;
+    right: 3rem;
+    top: 1rem;
+  }
 }
 
-    /* Bars to cross transition. 2nd bar will not show while 1st and 2rd will rotate*/
-    .header__hamburguer-button.active .header__hamburguer-bar:nth-child(2){
-
-        opacity: 0;
-        transition: 0.2s;
-
-
-    }
-
-    .header__hamburguer-button.active .header__hamburguer-bar:nth-child(1){
-
-        transform: translateY(00.53rem) rotate(45deg);
-        transition: 0.2s;
-        
-
-    }
-
-    .header__hamburguer-button.active .header__hamburguer-bar:nth-child(3){
-
-        transform: translateY(-00.53rem) rotate(-45deg);
-        transition: 0.2s;
-
-
-    }
-
-    .header__search-bar-toggle{
-        z-index: 10;
-        right: 3rem;
-        top: 1rem;
-    }
-    
-}
+/*# sourceMappingURL=header.css.map */
