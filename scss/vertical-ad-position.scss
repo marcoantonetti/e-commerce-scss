@@ -3,7 +3,19 @@
 // And this last row changes in the different product pages
 
 
-git 
+.main__aside-vertical-ad-goggles-url{
+	grid-row: 1 / -2;
+	grid-column-end: -1;
+
+
+	display: flex;
+
+	background: url('../images/ads/vertical-ad.jpg ');
+	background-size: 100% 25rem;
+	background-repeat: repeat;
+
+}
+
 
 	@media (max-width: 1880px) {
 		.main__aside-vertical-ad.bindings-url {
@@ -12,7 +24,7 @@ git
 
     
 
-        
+        //
 	}
     
     @media (max-width: 1605px) {
@@ -125,7 +137,7 @@ git
          background-size: contain;
      }
 
-
+     
 
 
      
