@@ -68,6 +68,10 @@ li {
   font-size: 2.3rem;
 }
 
+input {
+  color: black;
+}
+
 /* Style for index.html (main page) */
 /*Style for the wallpaper slider*/
 .main__section-slider {
