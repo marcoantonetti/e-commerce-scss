@@ -181,7 +181,7 @@ textarea {
   .main__section-newsletter-grid-item {
     grid-row: 8/12 !important;
   }
-  .main__aside-vertical-ad.active {
+  .main__aside-vertical-ad.display {
     display: none;
   }
 }
