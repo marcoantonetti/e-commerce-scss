@@ -33,7 +33,7 @@
 .main__section-newsletter-grid-item {
   grid-row: 10/15;
   grid-column: 1/3;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   display: flex;
   gap: 4rem;

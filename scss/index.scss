@@ -189,7 +189,7 @@ li{
 
 	&:hover {
 
-		@include expand-highlight
+		@include expand-highlight($width: 26rem);
 
 	}
 }
@@ -212,4 +212,15 @@ li{
 		width: auto;
 		padding: 0rem 1rem;
 	}
+}
+
+@media (max-width:500px){
+
+	.main__img-gallery {
+		&:hover{
+			@include expand-highlight($width: 16rem);
+
+		}
+	}
+
 }

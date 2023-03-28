@@ -197,5 +197,13 @@ li {
     padding: 0rem 1rem;
   }
 }
+@media (max-width: 500px) {
+  .main__img-gallery:hover {
+    cursor: crosshair;
+    width: 16rem;
+    filter: contrast(120%);
+    opacity: 1;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */

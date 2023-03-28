@@ -16,9 +16,9 @@
 	transform: scaleX(-100%);
 }
 
-@mixin expand-highlight{
+@mixin expand-highlight($width){
 	cursor: crosshair;
-	width: 26rem;
+	width: $width;
 	filter: contrast(120%);
 	opacity: 1;
 }

@@ -7,7 +7,7 @@ const populateGrid = (gallery) => {
 };
 const verticalAd = document.querySelector('.main__aside-vertical-ad');
 const getURLandPopuplate = (url) => {
-    if (/store-info.html$/.test(url)) {
+    if (/store-info.html$/.test(url) || /form__input-name=&form__input-email=&form__input-textarea=$/.test(url)) {
         verticalAd.classList.toggle('active');
     }
     let regexList = [/snowboards.html$/, /bindings.html$/, /helmets.html$/, /boots.html$/, /goggles.html$/];

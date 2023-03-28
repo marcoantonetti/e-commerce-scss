@@ -23,8 +23,8 @@ const populateGrid = (gallery: Binding[] | Snowboard[] | Goggle[] | Boot[] | Hel
 const verticalAd = document.querySelector('.main__aside-vertical-ad');
 const getURLandPopuplate = (url:string) => {
 
-     // Eliminar vertical ad solo en esta pagina. Mucho lio con css.
-     if(/store-info.html$/.test(url)){
+     // Eliminar vertical ad solo en esta pagina.
+     if(/store-info.html$/.test(url) || /form__input-name=&form__input-email=&form__input-textarea=$/.test(url)){
         verticalAd.classList.toggle('active')
     }
     
