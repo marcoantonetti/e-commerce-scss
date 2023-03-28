@@ -59,9 +59,9 @@ li{
 
 }
 
-// Inputs
+// Inputs, options, select. In the hosting server they appear blue (not in my local server), so I changed them to black.
 
-input {
+input, option, select {
 	color: $black;
 }
 

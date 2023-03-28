@@ -30,13 +30,6 @@
     left: -400%;
   }
 }
-/* h1 <a> tag */
-/*Nav bar Flex container contains 3 Flex items: ul-left, ul-right and hamburguer button*/
-/*nav bar buttons*/
-/* Styles for the hamburguer button on mobile menu */
-/*Active search bar on click*/
-/* Creating the nav bar and moving it away until hamburguer button is press */
-/* Bars to cross transition. 2nd bar will not show while 1st and 2rd will rotate*/
 header {
   background-color: black;
   display: flex;
