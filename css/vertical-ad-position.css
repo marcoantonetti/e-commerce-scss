@@ -1,83 +1,17 @@
-.main__aside-vertical-ad-goggles-url {
-  grid-row: 1/-2;
-  grid-column-end: -1;
-  display: flex;
-  background: url("../images/ads/vertical-ad.jpg ");
-  background-size: 100% 25rem;
-  background-repeat: repeat;
-}
+/* Error: expected selector.
+ *   ,
+ * 6 | git 
+ *   |     ^
+ *   '
+ *   scss\vertical-ad-position.scss 6:5  root stylesheet */
 
-@media (max-width: 1880px) {
-  .main__aside-vertical-ad.bindings-url {
-    grid-row: 1/4;
-  }
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected selector.\a   \2577 \a 6 \2502  git \d\a   \2502      ^\a   \2575 \a   scss\\vertical-ad-position.scss 6:5  root stylesheet";
 }
-@media (max-width: 1605px) {
-  .main__aside-vertical-ad.snowboard-url {
-    grid-row: 1/4;
-  }
-}
-@media (max-width: 1600px) {
-  .main__aside-vertical-ad.snowboard-url {
-    grid-row: 1/4;
-  }
-}
-@media (max-width: 1337px) {
-  .main__aside-vertical-ad.bindings-url {
-    grid-row: 1/5;
-  }
-}
-@media (max-width: 1608px) {
-  .main__aside-vertical-ad.boots-url {
-    grid-row: 1/4;
-  }
-}
-@media (max-width: 1066px) {
-  .main__aside-vertical-ad.bindings-url {
-    grid-row: 1/7;
-  }
-  .main__aside-vertical-ad.boots-url, .main__aside-vertical-ad.snowboard-url {
-    grid-row: 1/6;
-  }
-  .main__aside-vertical-ad-goggles-url {
-    grid-row: 1/3;
-  }
-  .main__aside-vertical-ad.helmets-url {
-    grid-row: 1/4;
-  }
-}
-@media (max-width: 793px) {
-  .main__aside-vertical-ad.bindings-url {
-    grid-row: 1/13;
-  }
-  .main__aside-vertical-ad.snowboard-url {
-    grid-row: 1/11;
-  }
-  .main__aside-vertical-ad.boots-url {
-    grid-row: 1/10;
-  }
-  .main__aside-vertical-ad-goggles-url {
-    grid-row: 1/4;
-  }
-  .main__aside-vertical-ad.-url {
-    grid-row: 1/7;
-  }
-}
-@media (max-width: 570px) {
-  .main__aside-vertical-ad-goggles-url {
-    grid-row: 5/4;
-    grid-column: 1/2;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-  .main__aside-vertical-ad.helmets-url, .main__aside-vertical-ad.snowboard-url, .main__aside-vertical-ad.bindings-url, .main__aside-vertical-ad.boots-url {
-    grid-row: 5/6;
-    grid-column: 1/2;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-}
-
-/*# sourceMappingURL=vertical-ad-position.css.map */
