@@ -1,3 +1,35 @@
+/* Animations */
+/* Since figure has 5 images, its set to a 500% width. It will transition to the next
+100% (next image) after some seconds. Overflow-x is hidden. */
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
 /* Placement of main__header */
 /* Grid */
 /*  Grid for entire product gallery and aside advertisement */
@@ -12,24 +44,14 @@ main {
   padding: 2rem 1rem;
 }
 
+/* Placement of main__header */
 .main__header-flex-container {
   display: flex;
   justify-content: space-between;
 }
 
-.main__filter-dropdown {
-  margin-right: 15rem;
-}
-.main__filter-dropdown select {
-  padding: 0.3rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.main__filter-dropdown option {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
+/* Grid */
+/*  Grid for entire product gallery and aside advertisement */
 .main__product-container-grid {
   display: grid;
   grid-auto-flow: dense;
@@ -40,8 +62,9 @@ main {
   margin-left: 1.5rem;
 }
 
+/* Aside (advertisements) elements positioning.  */
 .main__aside-vertical-ad {
-  grid-row: 1/-4;
+  grid-row: 1/-3;
   grid-column-end: -1;
   display: flex;
   background: url("../images/ads/vertical-ad.jpg ");
@@ -51,15 +74,18 @@ main {
 
 .main__aside-horizontal-ad {
   background-image: url("../images/ads/vertical-ad3.jpg");
-  padding: 4rem;
   background-position: 55% 45%;
   background-size: 90% 15rem;
   background-repeat: no-repeat;
+  padding: 4rem;
   margin-bottom: 3rem;
   margin-top: -1rem;
 }
 
+/* Flexbox */
+/* Product item layout positioning */
 .main__product-item-grid {
+  /* This is also a flex container for the details of the product */
   position: relative;
   z-index: 1;
   display: flex;
@@ -77,7 +103,7 @@ main {
   height: 18rem;
   width: 14rem;
   object-fit: contain;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0.1rem 0.1rem 0.8rem black, -0.1rem -0.1rem 0.8rem black;
 }
 
@@ -94,8 +120,12 @@ main {
 .main__flex-child-price {
   position: absolute;
   bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
+/* On hover there will be an overlay with a grey background and two <a>: shopping cart and a search glass */
+/* First I translate everything away, then on hover it comes back with a transition delay */
 .main__flex-child-overlay {
   position: absolute;
   top: 1rem;
@@ -109,15 +139,15 @@ main {
   transform: translateY(-400rem);
 }
 .main__flex-child-overlay a {
-  color: #fff;
+  color: rgb(255, 255, 255);
+  background: rgb(52, 50, 50);
   text-decoration: none;
-  background: #343232;
+  border-radius: 10%;
   margin: 0.5rem;
   padding: 1rem 1.2rem;
   font-size: 1.5rem;
   transform: translateY(-400rem);
   transition: all 0.2s;
-  border-radius: 10%;
 }
 .main__flex-child-overlay a:hover {
   color: gold;
@@ -139,46 +169,14 @@ main {
   --i: 2;
 }
 
-@media (max-width: 1280px) {
-  .main__aside-vertical-ad {
-    grid-row: 1/5;
-  }
-}
-@media (max-width: 1040px) {
-  .main__aside-vertical-ad {
-    grid-row: 1/7;
-  }
-  .main__aside-vertical-ad.snowboards-url {
-    grid-row: 1/6;
-    border: red solid 3px;
-    grid-row: 1/11;
-  }
-}
-@media (max-width: 1040px) and (max-width: 765px) {
+@media (max-width: 793px) {
   .main__aside-horizontal-ad {
     background-size: 100%;
   }
 }
-.main__aside-vertical-ad.bindings-url {
-  grid-row: 1/13;
-}
-
 @media (max-width: 570px) {
   .main__product-container-grid {
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  }
-  .main__aside-vertical-ad {
-    grid-row: 5/6;
-    grid-column: 1/2;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-  .main__aside-horizontal-ad {
-    background-size: 100%;
-  }
-  .main__filter-dropdown {
-    margin-right: 2rem;
   }
 }
 

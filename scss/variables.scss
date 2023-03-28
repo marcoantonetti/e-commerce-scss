@@ -1,0 +1,75 @@
+// Variables
+
+//Background 
+
+$grey-background: rgb(82, 80, 80);
+$lightgrey-bg: rgba(128, 128, 128, 0.251);
+$lightgrey-bg-lighter: rgba(128, 128, 128, 0.151);
+$lightgrey-bg-darker: rgba(128, 128, 128, 0.211);
+$black-bg: black;
+$almost-black-bg: rgb(26, 24, 24);
+$verylight-blue: rgb(187, 215, 221);
+$light-blue-hover: rgb(146, 206, 219);
+$translucent-grey: rgba(46, 46, 46, 0.242);
+$dark-grey: rgb(52, 50, 50);
+
+// Text 
+$white-color: rgb(255, 255, 255);
+$lightgrey-color-text: rgb(235, 229, 229);
+$grey-text: rgb(237, 223, 223);
+$black: black;
+$deep-red: rgb(195, 43, 43);
+$grey-almost-black: rgb(41, 36, 36);
+$grey-white: rgb(250, 245, 245);
+$gold: gold;
+
+
+// Linear gradient options
+
+$linear-gradient: (
+
+    option1:linear-gradient(to right, rgb(57, 140, 234), rgb(141, 190, 230), rgb(190, 208, 227)),
+    option2:linear-gradient(to right, rgb(57, 140, 234), rgb(193, 221, 242)  , rgb(171, 202, 238)),
+
+);
+
+// font-size options
+
+$font-size:(
+
+        normal: 1rem,
+        p: 1.2rem,
+        medium: 1.5rem,
+        h1-use:2rem,
+        title: 2.3rem,
+
+) ;
+
+// font-family options
+
+$font-family_1: Arial, Helvetica, sans-serif;
+$font-family_2: var(--font-gothic);
+$font-family_3: Aclonica , sans-serif;
+
+// z-index options
+
+$z-index:(
+    back: 0,
+    front: 1,
+    more-front:2,
+);
+
+//gaps options
+
+$gap: (
+	
+    biggest-gap: 4rem,
+    very-bg-gap: 3.5rem,
+	bg-gap:    2rem,
+	medium-gap:1rem,
+    short-gap: 0.5rem,
+	sm-gap:    0.3rem,
+    very-small: 0.2rem,
+	
+	
+);

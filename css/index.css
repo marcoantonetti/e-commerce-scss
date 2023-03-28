@@ -1,11 +1,3 @@
-/* Style for every <hr> in the site */
-/* Style for most <h2> in the site */
-/* Style for index.html (main page) */
-/*Style for the wallpaper slider*/
-/* Style for the bubble on the image sliders */
-/* Style for snowdevil section text */
-/* Style for image gallery */
-/* h2 */
 /* Animations */
 /* Since figure has 5 images, its set to a 500% width. It will transition to the next
 100% (next image) after some seconds. Overflow-x is hidden. */
@@ -38,30 +30,22 @@
     left: -400%;
   }
 }
-/* Media queries */
 * {
   box-sizing: border-box;
-  --background-color: rgb(26, 24, 24);
   margin: 0;
   padding: 0;
-  --grey-background: rgb(82, 80, 80);
-  --white-color: rgb(255, 255, 255);
-  --lightgrey-color-text: rgb(235, 229, 229);
-  --grey-text: rgb(237, 223, 223);
-  --lightgrey-bg: rgba(128, 128, 128, 0.251);
-  --lightgrey-bg-lighter: rgba(128, 128, 128, 0.151) --lightgrey-bg-darker: rgba(128, 128, 128, 0.211);
-  --font-gothic: Aclonica , sans-serif;
 }
 
 body {
+  overflow-x: hidden;
   background: linear-gradient(to right, rgb(57, 140, 234), rgb(141, 190, 230), rgb(190, 208, 227));
   font-size: 1rem;
   width: 100vw;
-  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
   font-stretch: wider;
 }
 
+/* Style for every <hr> in the site */
 hr {
   width: 60%;
   height: 0.2rem;
@@ -71,16 +55,25 @@ hr {
   margin: 0.3rem 0rem 2rem 1.5rem;
 }
 
+li {
+  list-style-type: none;
+  list-style: none;
+}
+
+/* Style for most <h2> in the site */
 .main__h2 {
   margin: 0rem 2rem 0rem 1.5rem;
-  font-family: var(--font-gothic);
+  font-family: Aclonica, sans-serif;
   font-weight: 400;
   font-size: 2.3rem;
 }
 
+/* Style for index.html (main page) */
+/*Style for the wallpaper slider*/
 .main__section-slider {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin-bottom: 2rem;
 }
 
@@ -88,9 +81,10 @@ hr {
   position: relative;
   z-index: 0;
   left: 0;
-  width: 500%;
+  width: 500%; /*So that the 5 images are next to each other, each covering 100% */
   height: 50rem;
   animation: 20s slider infinite;
+  /*Moves 100% (next image) after some seconds*/
 }
 
 .main__img-slide {
@@ -103,6 +97,7 @@ hr {
   transform: scaleX(-100%);
 }
 
+/* Style for the bubble on the image sliders */
 .main__div-bubble-container {
   position: absolute;
   z-index: 1;
@@ -135,11 +130,13 @@ hr {
   z-index: 1;
 }
 
+/* shred the snow phrase */
 .main__p-phrase {
   position: relative;
   left: 1.8rem;
   margin: 0.3rem 0rem;
   color: rgb(195, 43, 43);
+  text-shadow: 0 0 0.15rem gold;
   font-size: 1.2rem;
   font-weight: 800;
   font-family: Aclonica, sans-serif;
@@ -148,6 +145,7 @@ hr {
   margin-top: 0.7rem;
 }
 
+/* Style for snowdevil section about us text:*/
 .main__p-info {
   padding: 0rem 15rem 0rem 0rem;
   margin: 3rem 0rem 4rem 1.5rem;
@@ -157,6 +155,7 @@ hr {
   color: rgb(41, 36, 36);
 }
 
+/* Style for image gallery */
 .main__div-gallery {
   display: flex;
   justify-content: center;
@@ -175,7 +174,7 @@ hr {
 }
 .main__img-gallery:hover {
   cursor: crosshair;
-  width: 30rem;
+  width: 26rem;
   filter: contrast(120%);
   opacity: 1;
 }

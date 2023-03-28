@@ -1,16 +1,7 @@
-/* I added a bit of box-modelling to this flex positions*/
-/*Codigo repetitivo fijate que hacer*/
-* {
-  --grey-background: rgb(82, 80, 80);
-  --white-color: rgb(255, 255, 255);
-  --lightgrey-color-text: rgb(235, 229, 229);
-  --grey-text: rgb(237, 223, 223);
-}
-
 .footer {
   min-height: auto;
-  color: var(--grey-text);
-  background-color: var(--grey-background);
+  color: rgb(237, 223, 223);
+  background-color: rgb(82, 80, 80);
   font-size: large;
 }
 
@@ -18,13 +9,13 @@
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   text-align: center;
-  color: var(--white-color);
+  color: rgb(255, 255, 255);
 }
 
 .footer__link {
   position: relative;
   text-decoration: none;
-  color: var(--grey-color-text);
+  color: rgb(237, 223, 223);
 }
 
 .footer__i-social-logo {
@@ -53,12 +44,9 @@
 .footer__li-help {
   list-style-type: none;
 }
-.footer__li-help:hover .footer__link {
-  color: var(--white-color);
-}
 
-.footer__p-contact:hover .footer__link {
-  color: var(--white-color);
+.footer__p-contact:hover .footer__link, .footer__li-help:hover .footer__link {
+  color: rgb(255, 255, 255);
 }
 
 .footer__div-social-links {
@@ -83,12 +71,14 @@
   border-radius: 10%;
   vertical-align: center;
 }
+
 .footer__li-social_links:hover {
   background-color: rgb(223, 216, 209);
   transform: scale(1.1);
 }
+
 .footer__li-social_links:hover .footer__link {
-  color: var(--hover-color);
+  color: var(--hover-color); /* vars are declared on the html tag*/
 }
 
 .footer__div-location {

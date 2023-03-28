@@ -4,14 +4,14 @@ import { snowboardsList, BindingsList, helmetsList, BootsList, GogglesList } fro
 
 const containerGrid = document.querySelector<HTMLDivElement>('.main__product-container-grid')
 
-
+// Code for implicit grid
 
 // This function populates the grid gallery with multiple products layouts (grid items)
 const populateGrid = (gallery: Binding[] | Snowboard[] | Goggle[] | Boot[] | Helmet[] ) =>{
     
     gallery.forEach((product) => {
-        createProductLayout(product)
 
+        createProductLayout(product)
         
     })
 }
@@ -22,6 +22,11 @@ const populateGrid = (gallery: Binding[] | Snowboard[] | Goggle[] | Boot[] | Hel
 // This takes the current url as a parameter and calls the populateGrid function based on said url.
 const verticalAd = document.querySelector('.main__aside-vertical-ad');
 const getURLandPopuplate = (url:string) => {
+
+     // Eliminar vertical ad solo en esta pagina. Mucho lio con css.
+     if(/store-info.html$/.test(url)){
+        verticalAd.classList.toggle('active')
+    }
     
     // Regex read: url ending with the following regex
     let regexList = [/snowboards.html$/,/bindings.html$/, /helmets.html$/, /boots.html$/,/goggles.html$/] 
@@ -137,11 +142,40 @@ const searchBar = document.querySelector<HTMLInputElement>('.header__search-bar-
 const glassLogo = document.querySelector<HTMLLIElement>('.fa-magnifying-glass');
 
 glassLogo?.addEventListener('click', () => {
-    console.log('as')
+
     searchBar?.classList.toggle('active')
 
 })
 
 
+// Code for carousel slider on store-info.html
+// I work with data sets so that this code can work with any carousel on this or future pages
+const buttons = document.querySelectorAll<HTMLElement>('[data-carousel-button]')
 
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+       
+        const offset = button.dataset.carouselButton === 'next' ? 1 : -1;
+        const slides = button
+                             .closest<HTMLElement>('[data-carousel]')
+                             .querySelector<HTMLElement>('[data-slides]')
+
+        const activeSlide = slides.querySelector<HTMLElement>('.active')
+        console.log('asdsd')
+    
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+        activeSlide.classList.toggle('active')
+
+        // This conditionals make a loop. So that clicking next on the last picture goes to the first and viceversa
+        if (newIndex < 0 ) {newIndex = slides.children.length -1 ; console.log('a')}
+        if(newIndex >= slides.children.length) {newIndex = 0, console.log('B')}
+
+        slides.children[newIndex].classList.toggle('active');
+
+        [...slides.children]
+        
+    })
+
+
+})
 

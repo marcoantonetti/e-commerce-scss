@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
 $color_1: white;
 $font-family_1: var(--font-gothic);
 $background-color_1: rgb(0, 0, 0);
@@ -13,138 +16,198 @@ $background-color_4: rgb(250, 245, 245);
 /* Creating the nav bar and moving it away until hamburguer button is press */
 /* Bars to cross transition. 2nd bar will not show while 1st and 2rd will rotate*/
 header {
-	background-color: $background-color_1;
+
+	background-color: $black-bg;
 	display: flex;
 	flex-direction: column;
 	position: sticky;
 	top: -90px;
-	z-index: 2;
+	z-index: map-get($z-index, more-front );
+
 }
 .header__h1 {
-	font-size: 2rem;
+
+	font-size: map-get($font-size, h1-use );
+	font-family: $font-family_3;
+
 	height: 90px;
 	padding-top: 30px;
-	font-stretch: ultra-expanded;
-	font-family: $font-family_1;
 	margin-left: 25px;
+
 }
+
+/* h1 <a> tag */
 .header__link {
+
 	text-decoration: none;
-	color: $color_1;
+	color: $white-color;
+
 }
+
+/*Nav bar Flex container contains 3 Flex items: ul-left, ul-right and hamburguer button*/
+// It also has a search bar but this has a display of none until event is triggered
+
 .header__nav-bar {
-	background-color: $background-color_2;
+
+	background-color: $almost-black-bg;
 	height: 60px;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
 	position: sticky;
-	z-index: 1;
+	z-index: map-get($z-index , front );
 	top: 0;
+
 }
+
 .header__nav-bar-ul-left {
+
 	display: flex;
-	gap: 3.5rem;
+	gap: map-get($gap, very-bg-gap);
 	margin-left: 20px;
+
 }
+
 .header__nav-bar-ul-right {
 	display: flex;
-	gap: 1rem;
+	gap: map-get($gap, medium-gap);
+
 	margin-right: 2rem;
-	position: relative;
+	position: relative;  /*Relative for search-bar-active*/
 }
+
+/*nav bar buttons*/
 .header__nav-bar-li {
-	font-size: 1.2rem;
-	border-bottom: 5px solid transparent;
+
 	cursor: pointer;
 	list-style-type: none;
-	text-align: center;
+
+	border-bottom: 5px solid transparent;
 	border-radius: 0.25rem;
 	padding: 5px;
-	transition: all 0.3s;
+	
+	font-size: map-get($font-size, p);
+	text-align: center;
+
+
 	&:hover {
-		border-bottom: 3px solid rgb(121, 174, 235);
-		transform: scale(1.05);
-		background: linear-gradient(to right, rgb(0, 116, 248), rgb(193, 221, 242) , rgb(171, 202, 238));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+
+		@include scaleup-gradient-border;
+
 	}
 }
+
+/* Styles for the hamburguer button on mobile menu */
+
 .header__hamburguer-button {
-	&:hover {
-		border-bottom: 3px solid rgb(121, 174, 235);
-		transform: scale(1.05);
-		background: linear-gradient(to right, rgb(0, 116, 248), rgb(193, 221, 242) , rgb(171, 202, 238));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	color: $color_1;
+
+	color: $white-color;
 	position: absolute;
 	left: 25px;
 	top: 20px;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	gap: 0.2rem;
+	gap: map-get($gap , very-small);
 	height: 1.5rem;
 	width: 2.3rem;
+
+	&:hover {
+
+		@include scaleup-gradient-border;
+
+	}
 }
+
+// Display none, trigger active on media querie
 .header__hamburguer-bar {
+
 	display: none;
-	background-color: $background-color_3;
+	background-color: $white-color;
 	height: 0.2rem;
 	width: 90%;
 	border-radius: 0.5rem;
+
 }
+
+/*Active search bar on click*/
 .header__search-bar-toggle {
+
 	width: 10rem;
 	height: 2rem;
 	padding-left: 0.5rem;
+
 	position: absolute;
 	right: 12rem;
 	bottom: 1rem;
+
 	transition: all 1s;
 	transform: translateY(-100rem);
+
 	font-size: 1rem;
-	background-color: $background-color_4;
+	background-color: $grey-white;
 	border-radius: 0.25rem;
 }
 .header__search-bar-toggle.active {
 	transform: translateY(0rem);
 }
+
+
+
+
+// Media queries
 @media (max-width: 900px) {
+
 	.header__h1 {
+
 		margin-left: 1rem;
+
 	}
+
 	.header__nav-bar {
+
 		flex-direction: column;
 		padding: 1rem 0rem 0rem 0rem;
+
 	}
+
 	.header__nav-bar-ul-right {
-		gap: 0.5rem;
+
+		gap: map-get($gap, short-gap );
 		margin-left: 2.5rem;
+
 	}
+
+
+/* Creating the nav bar and moving it away until hamburguer button is press */
+
 	.header__nav-bar-ul-left {
-		display: flex;
-		flex-direction: column;
-		border-radius: 0rem 0rem 1rem 1rem;
-		order: 1;
-		transform: translateX(-100rem);
-		transition: 0.3s ease-out;
-		padding: 1rem 1rem 1rem 2.3rem;
-		width: 100%;
-		gap: 1.5rem;
-		margin: 0rem;
-		background-color: $background-color_2;
+
+		@include mobile-nav-bar;
+		background-color: $almost-black-bg;
+
+		@include move-away
+
 	}
+
 	.header__nav-bar-ul-left.active {
-		transform: translateX(0rem);
-		transition: all 0.3 ease-in;
+
+		@include move-back
+
 	}
+
 	.header__hamburguer-bar {
+
 		display: block;
 		transition: 0.3s;
+
 	}
+
+/* Bars to cross transition. 2nd bar will not show while 1st and 2rd will rotate*/
+
 	.header__hamburguer-button.active {
 		.header__hamburguer-bar {
 			&:nth-child(2) {
@@ -161,6 +224,7 @@ header {
 			}
 		}
 	}
+	
 	.header__search-bar-toggle {
 		z-index: 10;
 		right: 3rem;

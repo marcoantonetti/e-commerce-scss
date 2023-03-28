@@ -1,6 +1,9 @@
-$color_1: #fff;
+$color_1: rgb(255, 255, 255);
 $color_2: gold;
 $background-color_1: white;
+
+@import 'variables';
+@import 'mixins';
 
 /* Placement of main__header */
 /* Grid */
@@ -12,116 +15,177 @@ $background-color_1: white;
 /* First I translate everything away, then on hover it comes back with a transition delay */
 /* Media queries */
 /* Changing ad position */
+
 main {
+
 	padding: 2rem 1rem;
+
 }
+
+/* Placement of main__header */
+
 .main__header-flex-container {
+
 	display: flex;
 	justify-content: space-between;
+
 }
-.main__filter-dropdown {
-	margin-right: 15rem;
-	select {
-		padding: 0.3rem;
-		font-weight: bold;
-		font-size: 1rem;
-	}
-	option {
-		font-weight: bold;
-		font-size: 1rem;
-	}
-}
+
+
+/* Grid */
+/*  Grid for entire product gallery and aside advertisement */
+
 .main__product-container-grid {
+
 	display: grid;
 	grid-auto-flow: dense;
 	grid-auto-rows: 27rem;
 	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)) 12rem;
-	gap: 2rem;
+	gap: map-get($gap , bg-gap );
+
 	margin-bottom: 5rem;
 	margin-left: 1.5rem;
+
 }
+
+/* Aside (advertisements) elements positioning.  */
+
 .main__aside-vertical-ad {
-	grid-row: 1 / -4;
+
+	grid-row: 1 / -3;
 	grid-column-end: -1;
+
+
 	display: flex;
+
 	background: url('../images/ads/vertical-ad.jpg ');
 	background-size: 100% 25rem;
 	background-repeat: repeat;
+
 }
+
+
 .main__aside-horizontal-ad {
+
 	background-image: url("../images/ads/vertical-ad3.jpg");
-	padding: 4rem;
 	background-position: 55% 45%;
 	background-size: 90% 15rem;
 	background-repeat: no-repeat;
+
+	padding: 4rem;
 	margin-bottom: 3rem;
 	margin-top: -1rem;
+
 }
+
+/* Flexbox */
+/* Product item layout positioning */
 .main__product-item-grid {
+ /* This is also a flex container for the details of the product */
+
 	position: relative;
-	z-index: 1;
+	z-index: map-get($z-index , front );
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	transition: all 0.3S;
 	box-shadow: 0.0rem 0.1rem 0.2rem black;
+
 	&:hover {
-		transform: scale(1.1);
+
+	@include scaleup	
+
 	}
 }
+
 .main__flex-child-img {
+
 	margin: 1rem;
-	height: 18rem;
-	width: 14rem;
+	@include size;
+
 	object-fit: contain;
-	background-color: $background-color_1;
+	background-color: $white-color;
 	box-shadow: 0.1rem 0.1rem 0.8rem black, -0.1rem -0.1rem 0.8rem black;
+
 }
+
 .main__flex-child-title {
+
 	position: absolute;
 	bottom: 5.5rem;
+
 }
+
 .main__flex-child-subtitle {
+
 	position: absolute;
 	bottom: 4.1rem;
+
 }
 .main__flex-child-price {
+
 	position: absolute;
 	bottom: 1rem;
+
+	font-size: map-get($font-size, p );
+	font-weight: 600;
+
 }
+
+
+/* On hover there will be an overlay with a grey background and two <a>: shopping cart and a search glass */
+/* First I translate everything away, then on hover it comes back with a transition delay */
+// This overlay is a grey translucent background with the same size as the product image
 .main__flex-child-overlay {
+
 	position: absolute;
 	top: 1rem;
-	height: 18rem;
-	width: 14rem;
-	background: rgba(46, 46, 46, 0.242);
+	@include size;
+
+	background: $translucent-grey;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 0.5rem;
+	gap: map-get($gap, short-gap );
+	
 	transform: translateY(-400rem);
+
 	a {
-		color: $color_1;
+		color: $white-color;
+		background: $dark-grey;
+
 		text-decoration: none;
-		background: #343232;
+		border-radius: 10%;
+
 		margin: 0.5rem;
 		padding: 1rem 1.2rem;
-		font-size: 1.5rem;
+
+		font-size: map-get($font-size, medium );
+
 		transform: translateY(-400rem);
 		transition: all 0.2s;
-		border-radius: 10%;
+
 		&:hover {
-			color: $color_2;
+
+			color: $gold;
+
 		}
 	}
 }
+
 .main__product-flex-container {
 	&:hover {
 		.main__flex-child-overlay {
+
 			transform: translateY(0rem);
+
 			a {
+
 				transform: translateY(0rem);
 				transition-delay: calc(0.1s * var(--i));
+
 			}
 		}
 	}
@@ -132,43 +196,24 @@ main {
 .fa-magnifying-glass {
 	--i: 2;
 }
-@media (max-width: 1280px) {
-	.main__aside-vertical-ad {
-		grid-row: 1/5;
-	}
-}
-@media (max-width: 1040px) {
-	.main__aside-vertical-ad {
-		grid-row: 1/7;
-	}
-	.main__aside-vertical-ad.snowboards-url {
-		grid-row: 1/6;
-		border: red solid 3px;
-		grid-row: 1/11;
-	}
-	@media (max-width:765px) {
-				.main__aside-horizontal-ad { background-size: 100%;
+
+// Media queries
+
+
+@media (max-width:793px) {
+
+
+		.main__aside-horizontal-ad { 
+			background-size: 100%;	
 			}
 		}
-	}
-	.main__aside-vertical-ad.bindings-url {
-		grid-row: 1/13;
-	}
+	
 @media (max-width: 570px) {
+
 	.main__product-container-grid {
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	}
-	.main__aside-vertical-ad {
-		grid-row: 5/6;
-		grid-column: 1/2;
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: contain;
-	}
-	.main__aside-horizontal-ad {
-		background-size: 100%;
-	}
-	.main__filter-dropdown {
-		margin-right: 2rem;
-	}
+	
+
+
 }
