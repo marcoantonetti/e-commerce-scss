@@ -1,5 +1,11 @@
-@import 'variables';
-@import 'mixins';
+@import '_variables';
+@import '_mixins';
+@import '_footer';
+@import '_header';
+@import '_newsletter';
+@import '_product-gallery';
+@import '_store-info';
+@import '_vertical-ad-position';
 
 
 * {
@@ -7,6 +13,12 @@
 	margin: 0;	
 	padding: 0;
 
+
+}
+
+.main-index{
+
+	padding: 0 !important;
 
 }
 
