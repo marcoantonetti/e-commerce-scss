@@ -11,8 +11,14 @@ const getURLandPopuplate = (url) => {
         verticalAd.classList.toggle('display');
     }
     let regexList = [/snowboards.html$/, /bindings.html$/, /helmets.html$/, /boots.html$/, /goggles.html$/];
+    let regexList2 = [/snowboards$/, /bindings$/, /helmets$/, /boots$/, /goggles$/];
     let productList = [snowboardsList, BindingsList, helmetsList, BootsList, GogglesList];
     regexList.forEach((regex, index) => {
+        if (regex.test(url)) {
+            populateGrid(productList[index]);
+        }
+    });
+    regexList2.forEach((regex, index) => {
         if (regex.test(url)) {
             populateGrid(productList[index]);
         }
